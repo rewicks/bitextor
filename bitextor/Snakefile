@@ -469,7 +469,7 @@ rule wget_download:
     params:
         url="http://{target}",
         folder=lambda wildcards, output: os.path.dirname(output[0]),
-        time_limit=apply_format(CRAWLTIMELIMIT, "-t {}s"),
+        time_limit=apply_format(CRAWLTIMELIMIT, "-t {}"),
         user_agent=apply_format(USERAGENT, "-a '{}'"),
         wait=apply_format(CRAWLWAIT, "--wait {}"),
         file_types=apply_format(",".join(CRAWLFILETYPES), "-f {}")
